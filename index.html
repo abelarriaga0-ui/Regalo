@@ -28,6 +28,7 @@ h1{font-size:clamp(30px,7vw,58px);line-height:1.02;margin:18px 0 12px;letter-spa
 input,select{width:100%;border:1px solid #ffffff1e;background:#0d0912;color:white;border-radius:14px;padding:14px 14px;font-size:16px;outline:none}
 input:focus,select:focus{border-color:#ff86aa;box-shadow:0 0 0 4px #ff5c8a20}
 button{width:100%;margin-top:18px;border:0;border-radius:16px;padding:16px 18px;font-weight:800;font-size:16px;color:white;background:linear-gradient(135deg,var(--accent),#ff7e65 45%,var(--accent2));box-shadow:0 14px 30px #ff5c8a30;cursor:pointer;transition:.2s transform}
+.musicBtn{position:fixed;right:16px;top:16px;z-index:80;width:auto;margin:0;padding:10px 14px;border-radius:999px;background:#190f20dd;border:1px solid #ffffff22;box-shadow:0 10px 30px #0007;backdrop-filter:blur(12px);font-size:14px}
 button:active{transform:scale(.98)}
 .msg{min-height:24px;text-align:center;margin-top:12px;color:#f3b8c8;font-size:14px}
 .hidden{display:none!important}
@@ -56,6 +57,8 @@ button:active{transform:scale(.98)}
 </head>
 <body>
 <div class="stars" id="stars"></div>
+<audio id="bgMusic" src="te-quiero-loop.mp3" loop preload="auto"></audio>
+<button id="musicBtn" class="musicBtn hidden" type="button" aria-label="Pausar o reanudar música">🔊 Música</button>
 <main class="wrap" id="gate">
   <section class="panel">
     <span class="badge">❤️ Un pequeño secreto para ti 🦋</span>
@@ -142,6 +145,9 @@ function floaties(){
  }
 }
 function unlock(){
+ const music=$('bgMusic');
+ music.volume=.55;
+ music.play().then(()=>{$('musicBtn').classList.remove('hidden')}).catch(()=>{$('musicBtn').classList.remove('hidden')});
  const layer=document.createElement('div');layer.className='unlock';
  layer.innerHTML='<div class="envelope"><div class="heartseal">❤️</div></div><div class="unlockText">Lo recordaste… esto es para ti 🦋✨</div>';
  document.body.appendChild(layer);floaties();
@@ -153,6 +159,16 @@ function unlock(){
   },800);
  },2400);
 }
+$('musicBtn').addEventListener('click',()=>{
+ const music=$('bgMusic');
+ if(music.paused){
+  music.play().catch(()=>{});
+  $('musicBtn').textContent='🔊 Música';
+ }else{
+  music.pause();
+  $('musicBtn').textContent='🔇 Pausada';
+ }
+});
 $('openBtn').addEventListener('click',()=>{
  const ok1=Number($('d1').value)===7 && Number($('m1').value)===10;
  const ok2=Number($('d2').value)===23 && Number($('m2').value)===11;
