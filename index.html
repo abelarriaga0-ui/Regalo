@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120b1a">
+<title>Para ti ❤️🦋</title>
+<style>
+:root{--bg:#100814;--card:#1b1023cc;--text:#fff7fb;--muted:#d7c7d5;--accent:#ff5c8a;--accent2:#b58cff;--gold:#ffd58a}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(circle at 20% 10%,#3a1838 0,transparent 32%),
+radial-gradient(circle at 90% 20%,#2b234d 0,transparent 32%),
+linear-gradient(160deg,#0b0710,#160b1d 58%,#0c0812);color:var(--text)}
+body{overflow-x:hidden}
+.stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.3;animation:twinkle 3s infinite ease-in-out}
+@keyframes twinkle{50%{opacity:1;transform:scale(1.8)}}
+.wrap{min-height:100svh;display:grid;place-items:center;padding:24px}
+.panel{width:min(720px,100%);backdrop-filter:blur(18px);background:linear-gradient(180deg,#211329d9,#160d1ed9);border:1px solid #ffffff1f;border-radius:28px;padding:26px;box-shadow:0 30px 90px #0008, inset 0 1px 0 #ffffff15}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff18;color:#f6ddea;font-size:13px}
+h1{font-size:clamp(30px,7vw,58px);line-height:1.02;margin:18px 0 12px;letter-spacing:-.04em}
+.sub{color:var(--muted);font-size:16px;line-height:1.6;margin:0 0 24px}
+.clues{display:grid;gap:14px}
+.clue{padding:18px;border-radius:20px;background:#ffffff0b;border:1px solid #ffffff14}
+.clue strong{display:block;margin-bottom:10px;font-size:15px}
+.inputs{display:grid;grid-template-columns:1fr 1.35fr;gap:10px}
+input,select{width:100%;border:1px solid #ffffff1e;background:#0d0912;color:white;border-radius:14px;padding:14px 14px;font-size:16px;outline:none}
+input:focus,select:focus{border-color:#ff86aa;box-shadow:0 0 0 4px #ff5c8a20}
+button{width:100%;margin-top:18px;border:0;border-radius:16px;padding:16px 18px;font-weight:800;font-size:16px;color:white;background:linear-gradient(135deg,var(--accent),#ff7e65 45%,var(--accent2));box-shadow:0 14px 30px #ff5c8a30;cursor:pointer;transition:.2s transform}
+button:active{transform:scale(.98)}
+.msg{min-height:24px;text-align:center;margin-top:12px;color:#f3b8c8;font-size:14px}
+.hidden{display:none!important}
+.unlock{position:fixed;inset:0;z-index:20;display:grid;place-items:center;background:radial-gradient(circle,#3d1739,#130b19 55%,#08060b);animation:fadeIn .45s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.envelope{position:relative;width:220px;height:145px;background:#f6d9d9;border-radius:8px;box-shadow:0 30px 80px #0009;animation:float 1.8s ease-in-out infinite}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 50%,#eabcbc 51%) bottom left/50% 100% no-repeat,linear-gradient(215deg,transparent 50%,#efc7c7 51%) bottom right/50% 100% no-repeat;border-radius:8px}
+.envelope:after{content:"";position:absolute;left:0;top:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:78px solid #ffdede;transform-origin:top;animation:openFlap 1.6s .3s forwards}
+@keyframes openFlap{to{transform:rotateX(180deg);z-index:-1}}
+@keyframes float{50%{transform:translateY(-10px)}}
+.heartseal{position:absolute;left:50%;top:63%;transform:translate(-50%,-50%);font-size:42px;z-index:4;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.16)}}
+.unlockText{position:absolute;bottom:16%;width:100%;text-align:center;font-weight:700;color:#ffe9f1}
+.letterWrap{min-height:100svh;padding:34px 18px 80px;position:relative}
+.letter{width:min(760px,100%);margin:auto;background:linear-gradient(#fffaf4,#fff6ee);color:#392730;border-radius:26px;padding:clamp(24px,6vw,46px);box-shadow:0 30px 90px #0009;position:relative;overflow:hidden}
+.letter:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% 10%,#ff5c8a0d,transparent 20%),radial-gradient(circle at 90% 30%,#b58cff12,transparent 25%);pointer-events:none}
+.letter h2{text-align:center;font-family:Georgia,serif;font-size:clamp(30px,7vw,50px);margin:0 0 6px;color:#4a2636}
+.date{text-align:center;color:#916c7a;margin-bottom:28px}
+.letter p{font-family:Georgia,serif;font-size:17px;line-height:1.85;margin:0 0 19px;opacity:0;transform:translateY(14px);animation:reveal .7s forwards}
+@keyframes reveal{to{opacity:1;transform:none}}
+.signature{text-align:center;font-weight:800;font-size:22px;margin-top:30px;color:#7b2846}
+.floaty{position:fixed;bottom:-50px;z-index:50;pointer-events:none;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-120vh) rotate(360deg);opacity:0}}
+@media(max-width:520px){.panel{padding:20px}.inputs{grid-template-columns:1fr 1.25fr}.letter p{font-size:16px;line-height:1.75}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<main class="wrap" id="gate">
+  <section class="panel">
+    <span class="badge">❤️ Un pequeño secreto para ti 🦋</span>
+    <h1>Hay recuerdos que solo se abren con las fechas correctas.</h1>
+    <p class="sub">Dos momentos. Dos pistas. Si tu corazón recuerda ambos, la sorpresa se abre. ✨</p>
+
+    <div class="clues">
+      <div class="clue">
+        <strong>🦋 Pista 1: El nacimiento de la persona más linda del mundo ❤️</strong>
+        <div class="inputs">
+          <input id="d1" inputmode="numeric" type="number" min="1" max="31" placeholder="Día">
+          <select id="m1"><option value="">Mes</option><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select>
+        </div>
+      </div>
+
+      <div class="clue">
+        <strong>❤️ Pista 2: La fecha que le cambiaste la vida a un niño triste 🥹</strong>
+        <div class="inputs">
+          <input id="d2" inputmode="numeric" type="number" min="1" max="31" placeholder="Día">
+          <select id="m2"><option value="">Mes</option><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select>
+        </div>
+      </div>
+    </div>
+
+    <button id="openBtn">Descubrir mi regalo ❤️</button>
+    <div class="msg" id="msg"></div>
+  </section>
+</main>
+
+<section class="letterWrap hidden" id="letterWrap">
+  <article class="letter">
+    <h2>Para ti, mi amor ❤️🦋</h2>
+    <div class="date">7 de octubre de 2026</div>
+
+    <p>En este día tan lindo quería recordarte lo especial que eres para mí. ❤️ Quizás para ti no sea algo tan especial o no celebres de la misma manera que yo; sin embargo, quiero decirte que mi alegría no es solo compartir un día contigo, sino tener la dicha y la fortuna de poder estar a tu lado cada día de tu vida, ser parte de ella y acompañarte en cada uno de tus pasos. 🥹❤️</p>
+
+    <p>Quizás suene exagerado o me emocione de más, pero para mí no significa un día más. Es uno de los días más especiales que puedo vivir en todo el año, porque es tu cumpleaños. 🎂❤️ Y significa muchísimo para mí poder ser esa persona con la que puedas pasar año tras año, compartiendo tus logros, tropiezos, sueños, metas y, sobre todo, momentos que sé que jamás volverán a repetirse de la misma manera. 🦋</p>
+
+    <p>Justo en este día recuerdo lo incomprensible y maravillosa que puede ser la vida, porque jamás hubiese imaginado que un día como hoy naciste tú. Una persona que jamás pensé conocer, pero que estaba destinada a llegar a mi vida para alegrar mis noches, calmar mis miedos, sanar mis heridas y acompañarme en todo momento y circunstancia. ❤️‍🩹</p>
+
+    <p>Eres esa persona irrepetible. Eres esa persona que vale mucho más de lo que cree, mucho más de lo que piensa y que merece muchísimo más de lo que espera. ❤️</p>
+
+    <p>Y es necesario que te recuerde la gran mujer que eres: la gran hija, la gran hermana, la gran compañera, la gran novia, la gran pareja y, sobre todo, la increíble persona que quizás tú misma no crees que eres, pero que yo tengo la fortuna de conocer. 🥺❤️</p>
+
+    <p>Te digo todo esto porque necesito que sepas lo afortunado que me siento de poder tener tu tiempo, tu espacio y tu amor. Y, sobre todo, porque jamás pensé que aquel <strong>7 de octubre del 2000</strong>, justo nueve meses después de que yo naciera, ya existías tú. 🦋❤️ Y que, de alguna manera, en tu destino y en el mío ya estaba escrito que teníamos que llegar justamente hasta hoy: <strong>7 de octubre de 2026</strong>.</p>
+
+    <p>Una fecha que para mí no es igual a ninguna otra, por todo lo que ha pasado y por todo lo que está pasando, especialmente en mi vida. Porque incluso en medio de la frustración, del desespero o quizás de sentir que es poco lo que puedo darte, muy dentro de mí siento que jamás había estado tan cerca de que algo grande suceda entre nosotros. ❤️‍🩹✨</p>
+
+    <p>Justamente por eso me atreví a poner un año que simplemente me dictó el corazón, sin saber realmente qué pasará. Pero estoy convencido de que algo grande sucederá con nosotros. ❤️🦋</p>
+
+    <p>Por eso hoy no quería solamente desearte un <strong>feliz cumpleaños</strong> 🎂❤️ ni poder alegrarte, aunque sea por un momento, la vida. También quería obsequiarte algo que quizás parezca insignificante, pero puedo asegurarte que nada de lo que he regalado en mi vida ha llevado tantos sentimientos como esta simpleza de obsequio. 🎁❤️</p>
+
+    <p>Espero de corazón que te guste y que sepas que, de la misma manera en que pasé años sin saber que el amor de mi vida ya existía y yo todavía no la conocía, sé que cosas muy grandes llegarán a nuestra vida. ✨ Quizás todavía no sé cuáles serán, pero estoy dispuesto a permitir que sucedan, porque sé que si las vivo contigo serán cosas maravillosas. 🥹❤️</p>
+
+    <p><strong>Gracias por existir.</strong> 🦋 Gracias por llegar a mi vida. ❤️ Gracias por dar tanto amor sin esperar nada a cambio.</p>
+
+    <p>Eres la mejor mujer del mundo para mí. ❤️ Y no olvides jamás quererte, cuidarte y sonreír, porque verte sonreír siempre va a ser suficiente para hacerme feliz.</p>
+
+    <div class="signature">Te amo, mi amor eterno. ❤️🦋</div>
+  </article>
+</section>
+
+<script>
+const $=id=>document.getElementById(id);
+const msg=$('msg');
+function stars(){
+ const box=$('stars');
+ for(let i=0;i<65;i++){
+  const s=document.createElement('i');s.className='star';
+  s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=(Math.random()*3)+'s';s.style.opacity=.2+Math.random()*.6;
+  box.appendChild(s);
+ }
+}
+function floaties(){
+ const icons=['❤️','🦋','✨','💗','💖'];
+ for(let i=0;i<34;i++){
+  setTimeout(()=>{
+   const x=document.createElement('div');x.className='floaty';x.textContent=icons[Math.floor(Math.random()*icons.length)];
+   x.style.left=(Math.random()*100)+'vw';x.style.fontSize=(18+Math.random()*28)+'px';
+   x.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(x);
+   setTimeout(()=>x.remove(),6500);
+  },i*110);
+ }
+}
+function unlock(){
+ const layer=document.createElement('div');layer.className='unlock';
+ layer.innerHTML='<div class="envelope"><div class="heartseal">❤️</div></div><div class="unlockText">Lo recordaste… esto es para ti 🦋✨</div>';
+ document.body.appendChild(layer);floaties();
+ setTimeout(()=>{
+  layer.style.transition='opacity .8s ease';layer.style.opacity='0';
+  setTimeout(()=>{layer.remove();$('gate').classList.add('hidden');$('letterWrap').classList.remove('hidden');
+   [...document.querySelectorAll('.letter p')].forEach((p,i)=>p.style.animationDelay=(i*.15)+'s');
+   window.scrollTo({top:0,behavior:'smooth'});floaties();
+  },800);
+ },2400);
+}
+$('openBtn').addEventListener('click',()=>{
+ const ok1=Number($('d1').value)===7 && Number($('m1').value)===10;
+ const ok2=Number($('d2').value)===23 && Number($('m2').value)===11;
+ if(ok1&&ok2){msg.textContent='';unlock();}
+ else{
+  msg.textContent='Mmm… una de esas fechas todavía no coincide con nuestra historia ❤️';
+  const p=document.querySelector('.panel');p.animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:360});
+ }
+});
+stars();
+</script>
+</body>
+</html>
